@@ -126,5 +126,13 @@ namespace Unity.AI.Navigation.Samples
         {
             return cooldownTimeRemaining <= 0 && !isDashing;
         }
+
+        public float GetDashCooldownProgress()
+        {
+            if (dashCooldown <= 0) return 1f;
+            return 1f - Mathf.Clamp01(cooldownTimeRemaining / dashCooldown);
+        }
     }
+
+
 }
