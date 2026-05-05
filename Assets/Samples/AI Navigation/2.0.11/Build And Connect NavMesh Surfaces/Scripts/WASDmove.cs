@@ -132,7 +132,15 @@ namespace Unity.AI.Navigation.Samples
             if (dashCooldown <= 0) return 1f;
             return 1f - Mathf.Clamp01(cooldownTimeRemaining / dashCooldown);
         }
+
+        public void IncreaseDashSpeed(float amount)
+        {
+            dashSpeed += amount;
+            Debug.Log("New dash speed: " + dashSpeed);
+        }
     }
+
+
 
 
 }
