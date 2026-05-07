@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a14991152c8293a4ab3e4a9ba6856337, type: 3}
   m_Name: Max Health Up
   m_EditorClassIdentifier: Assembly-CSharp::ShopItemData
-  itemName: 
-  description: 
-  price: 0
+  itemName: Health up
+  description: Increase your max health
+  price: 50

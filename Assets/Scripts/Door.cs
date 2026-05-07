@@ -3,6 +3,7 @@ using UnityEngine.AI;
 
 public class Door : MonoBehaviour
 {
+
     [Header("Connection")]
     public Room connectedRoom;
     public Transform exitPoint;
@@ -12,7 +13,7 @@ public class Door : MonoBehaviour
     private RoomManager roomManager;
 
     // References to block/unblock the doorway
-    private Renderer doorRenderer;
+    private Renderer[] doorRenderers;
     private Collider solidCollider;
     private NavMeshObstacle navMeshObstacle;
 
@@ -21,7 +22,7 @@ public class Door : MonoBehaviour
         roomManager = FindFirstObjectByType<RoomManager>();
 
         // Search children too in case mesh is on a child object
-        doorRenderer = GetComponentInChildren<Renderer>();
+        doorRenderers = GetComponentsInChildren<Renderer>();
         navMeshObstacle = GetComponent<NavMeshObstacle>();
 
         // Find the non-trigger collider specifically
@@ -51,13 +52,13 @@ public class Door : MonoBehaviour
     {
         if (isLocked)
         {
-            if (doorRenderer != null) doorRenderer.enabled = true;
+            foreach (Renderer r in doorRenderers) r.enabled = true;
             if (solidCollider != null) solidCollider.enabled = true;
             if (navMeshObstacle != null) navMeshObstacle.enabled = true;
         }
         else
         {
-            if (doorRenderer != null) doorRenderer.enabled = false;
+            foreach (Renderer r in doorRenderers) r.enabled = false;
             if (solidCollider != null) solidCollider.enabled = false;
             if (navMeshObstacle != null) navMeshObstacle.enabled = false;
         }
@@ -78,4 +79,6 @@ public class Door : MonoBehaviour
         if (other.CompareTag("Player"))
             playerInRange = false;
     }
+
+    
 }

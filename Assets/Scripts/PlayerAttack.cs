@@ -4,6 +4,9 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
 
+    [Header("Effects")]
+    [SerializeField] private ParticleSystem attackEffect;
+
     [Header("Attack Settings")]
     [SerializeField] private float attackDamage = 50f;
     [SerializeField] private float attackRange = 2f;
@@ -37,6 +40,11 @@ public class PlayerAttack : MonoBehaviour
     private void Attack()
     {
         attackCooldownRemaining = attackCooldown;
+
+        if (attackEffect != null)
+        {
+            attackEffect.Play();
+        }
 
         // Find all colliders within attack range
         Collider[] hitColliders = Physics.OverlapSphere(
@@ -86,4 +94,5 @@ public class PlayerAttack : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRange);
     }
+
 }

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a14991152c8293a4ab3e4a9ba6856337, type: 3}
   m_Name: Range up
   m_EditorClassIdentifier: Assembly-CSharp::ShopItemData
-  itemName: 
-  description: 
-  price: 0
+  itemName: Range Up
+  description: Increase the range of your melee attacks
+  price: 30
