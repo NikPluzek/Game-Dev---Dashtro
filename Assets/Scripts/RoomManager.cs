@@ -7,7 +7,7 @@ public class RoomManager : MonoBehaviour
 
     [Header("Camera")]
     public Transform cameraTransform;
-    public Vector3 cameraOffset = new Vector3(0, 15, -5); // Adjust to match your current camera
+    public Vector3 cameraOffset = new Vector3(0, 15, -5); 
 
     private Room currentRoom;
     private Transform player;
